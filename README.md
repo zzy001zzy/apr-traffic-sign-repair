@@ -2,7 +2,7 @@
 
 Research software accompanying **APR: Compact Analytic-Prior Repair for Traffic-Sign Detection**, by **Chih-Yuan Cheng and Bor-Jiunn Hwang**, Ming Chuan University. **IEEE CSIT 2026, Paper 066 — accepted and orally presented on 15 October 2026.** [Official conference program](https://csit.ieee.org.ua/accepted-papers/).
 
-[Archived release DOI](https://doi.org/10.5281/zenodo.23430419) · [Interactive research example](https://huggingface.co/spaces/zzy001zzy/apr-traffic-sign-repair) · [Video demonstration](https://youtu.be/g6abucXnI68) · [Component licenses](#licensing)
+[Archived release DOI](https://doi.org/10.5281/zenodo.23430088) · [Interactive research example](https://huggingface.co/spaces/zzy001zzy/apr-traffic-sign-repair) · [Video demonstration](https://youtu.be/g6abucXnI68) · [Component licenses](#licensing)
 
 APR combines an analytic Telea proposal, a bounded residual refiner and a component selector. Its repair network contains **27,188 parameters**. The selected RGB-only locator operates inside a supplied sign ROI.
 
@@ -78,12 +78,12 @@ Please use GitHub issues for reproducible bugs, compatibility reports and docume
 
 ## Artifact verification
 
-Version 1.0.1 is archived at [Zenodo DOI 10.5281/zenodo.23430419](https://doi.org/10.5281/zenodo.23430419). The archive includes the release ZIP, a file-level SPDX inventory and SHA-256 checksums. The published Zenodo files were downloaded and matched byte for byte against the GitHub release assets.
+Version 1.0.2 is archived at [Zenodo DOI 10.5281/zenodo.23430088](https://doi.org/10.5281/zenodo.23430088). The archive includes the release ZIP, a file-level SPDX inventory and SHA-256 checksums. The published Zenodo files were downloaded and matched byte for byte against the GitHub release assets.
 
 [Artifact checks](https://github.com/zzy001zzy/apr-traffic-sign-repair/actions/workflows/ci.yml) run six CPU engineering tests and REUSE licensing checks. These checks cover software contracts and licensing; reported scientific results retain their original measurement scope.
 
 [OpenSSF Best Practices self-assessment](https://www.bestpractices.dev/en/projects/15606) is in progress (55% on 2026-10-17). An [OpenSSF Scorecard v5.6.0 snapshot](docs/scorecard-2026-10-17.json) records 4.2/10 for the initial public release commit. These are transparent process records.
 
-## Documentation correction in 1.0.1
+## Qualitative example provenance
 
-The fixed qualitative panels use **predicted support masks**. Version 1.0.0 mistakenly called this example known-mask. [Primary producer and asset provenance](docs/qualitative-provenance.json) records the original source/manifest hashes and the exact predicted-mask repair calls. The correction changes documentation only; the example pixels, inference modules, weights and reported numbers are identical to version 1.0.0. The Python API continues to accept an aligned caller-provided support mask.
+The fixed qualitative panels use **predicted support masks**. Version 1.0.0 called this example known-mask; version 1.0.1 corrected the provenance and heading but retained two viewer labels. Version 1.0.2 makes all viewer labels consistent. [Primary producer and asset provenance](docs/qualitative-provenance.json) records the original source/manifest hashes and exact predicted-mask repair calls. The example pixels, inference modules, weights and reported numbers are identical to version 1.0.0. The Python API accepts an aligned caller-provided support mask.

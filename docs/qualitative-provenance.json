@@ -15,5 +15,5 @@
     "(\"oracle_mask\", mask_png(exact))"
   ],
   "binding": "Producer hash matches the R12 launch gate and terminal receipt; the atlas manifest hash matches the E14 terminal and retained image-rights review.",
-  "correction": "Version 1.0.0 public documentation mistakenly described the precomputed qualitative panels as known-mask. Version 1.0.1 corrects this description to predicted-mask. The panels, model weights, inference code and reported numerical results are unchanged. The Python API accepts a caller-provided support mask as a separate interface contract."
+  "correction": "Version 1.0.0 called the precomputed qualitative panels known-mask. Version 1.0.1 corrected the main description and provenance but retained two viewer labels. Version 1.0.2 consistently identifies the panels as predicted-mask. The panels, weights, inference code and reported results are unchanged. The Python API accepts a caller-provided support mask as a separate interface contract."
 }

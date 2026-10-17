@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "apr-traffic-sign-repair"
-version = "1.0.1"
+version = "1.0.2"
 description = "Compact analytic-prior repair: frozen research inference modules"
 readme = "README.md"
 requires-python = ">=3.10"
