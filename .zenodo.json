@@ -1,0 +1,38 @@
+{
+  "title": "APR: Compact Analytic-Prior Repair for Traffic-Sign Detection \u2014 Software and Research Example",
+  "upload_type": "software",
+  "description": "Frozen APR-HardSelect-96 inference modules, selected RGB-only given-sign-ROI locator architecture, tensor-only model weights, and one attributed noncommercial DFG research example. Reported aggregates are drawn from the accepted IEEE CSIT 2026 paper.",
+  "creators": [
+    {
+      "name": "Cheng, Chih-Yuan",
+      "affiliation": "Ming Chuan University",
+      "orcid": "0009-0003-3727-649X"
+    },
+    {
+      "name": "Hwang, Bor-Jiunn",
+      "affiliation": "Ming Chuan University",
+      "orcid": "0000-0002-7302-1019"
+    }
+  ],
+  "license": "cc-by-nc-sa-4.0",
+  "access_right": "open",
+  "keywords": [
+    "traffic-sign detection",
+    "image repair",
+    "analytic prior",
+    "adversarial patch"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/zzy001zzy/apr-traffic-sign-repair",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://csit.ieee.org.ua/accepted-papers/",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "License by component: self-authored code MIT; original documentation and aggregate tables CC-BY-4.0; released model weights and DFG-derived example CC-BY-NC-SA-4.0. Paper 066 accepted and orally presented at IEEE CSIT 2026; final proceedings identifier pending."
+}

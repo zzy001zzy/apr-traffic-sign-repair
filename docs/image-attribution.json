@@ -1,0 +1,12 @@
+{
+  "file": "web/assets/qualitative-case.png",
+  "sha256": "04775c01e11a947ce0bf11e1b38a073d9116b9f7986efe3d36cf447f5f647bdf",
+  "source": "DFG Traffic Sign Dataset, ViCoS Laboratory, University of Ljubljana; images provided and annotated by DFG Consulting d.o.o.",
+  "creators": "Domen Tabernik and Danijel Skočaj",
+  "source_url": "https://www.vicos.si/resources/dfg/",
+  "doi": "10.1109/TITS.2019.2913588",
+  "license": "CC-BY-NC-SA-4.0",
+  "modifications": "Existing fixed E14 atlas case DFGSHAPE_0003465: crops, digital occlusion, repair and four-panel layout",
+  "case_scope": "One fixed qualitative known-mask case; aggregate results are reported separately",
+  "reuse_scope": "Public noncommercial research example with attribution and ShareAlike conditions"
+}

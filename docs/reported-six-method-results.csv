@@ -1,0 +1,7 @@
+method,attacked_recall_percent,recovered,eligible,recovery_percent,masked_psnr_db
+No repair,2.3,0,701,0.0,9.18
+Box ring-4,76.3,575,701,82.0,14.35
+Telea r=3,76.4,570,701,81.3,14.03
+APR-HS-96,76.2,569,701,81.2,14.37
+AOT-GAN,87.5,658,701,93.9,15.52
+big-LaMa,88.3,667,701,95.1,16.36

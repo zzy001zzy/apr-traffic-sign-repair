@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 Chih-Yuan Cheng and Bor-Jiunn Hwang
+# SPDX-License-Identifier: MIT
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apr-traffic-sign-repair"
+version = "1.0.0"
+description = "Compact analytic-prior repair: frozen research inference modules"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT (code); see component licenses for weights and examples"}
+dependencies = ["numpy>=1.26,<3", "opencv-python-headless>=4.8,<6", "torch>=2.2,<3", "safetensors>=0.4,<1"]
+
+[tool.setuptools.packages.find]
+include = ["apr_repair*"]

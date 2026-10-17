@@ -1,0 +1,30 @@
+name: Artifact checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
+jobs:
+  cpu-and-licenses:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install CPU runtime and release tooling
+        run: |
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.11.0
+          python -m pip install numpy==2.4.4 opencv-python-headless==5.0.0.93 safetensors==0.8.0 reuse==6.2.0
+          python -m pip install --no-deps -e .
+      - name: Check CPU inference and release contracts
+        run: python -m unittest discover -s tests -v
+      - name: Check file-level licensing
+        run: reuse lint

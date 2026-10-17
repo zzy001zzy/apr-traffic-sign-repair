@@ -1,0 +1,18 @@
+[
+  {
+    "file": "apr-hardselect96.safetensors",
+    "identity": "DFG_R12_APR_V4_1_SEED_01",
+    "original_checkpoint_sha256": "07972822323e69bac1e94bf36e8dd40029599209b7a029e8bb2e4abffa6d7829",
+    "sha256": "e4f429a7004083b6fa9e228f4431ad4b6ed46fa568b4054fd7b83ddbc1b87d34",
+    "bytes": 112832,
+    "license": "CC-BY-NC-SA-4.0"
+  },
+  {
+    "file": "roi-presence-mask-cascade.safetensors",
+    "identity": "DFG_R12_LOCATOR_V2_C3_PRIMARY",
+    "original_checkpoint_sha256": "ba6cde54560628a4ddc57d76cd7b37e41166a9d720a17854032c0814dc49b121",
+    "sha256": "bcb5d6c2f267ba850f3745fbb9d605d301bcbdc1b6f2c7078414cb722f633b9c",
+    "bytes": 751444,
+    "license": "CC-BY-NC-SA-4.0"
+  }
+]

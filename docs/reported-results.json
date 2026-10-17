@@ -1,0 +1,144 @@
+{
+  "six_methods": [
+    {
+      "method": "No repair",
+      "attacked_recall_percent": 2.3,
+      "recovered": 0,
+      "eligible": 701,
+      "recovery_percent": 0.0,
+      "masked_psnr_db": 9.18
+    },
+    {
+      "method": "Box ring-4",
+      "attacked_recall_percent": 76.3,
+      "recovered": 575,
+      "eligible": 701,
+      "recovery_percent": 82.0,
+      "masked_psnr_db": 14.35
+    },
+    {
+      "method": "Telea r=3",
+      "attacked_recall_percent": 76.4,
+      "recovered": 570,
+      "eligible": 701,
+      "recovery_percent": 81.3,
+      "masked_psnr_db": 14.03
+    },
+    {
+      "method": "APR-HS-96",
+      "attacked_recall_percent": 76.2,
+      "recovered": 569,
+      "eligible": 701,
+      "recovery_percent": 81.2,
+      "masked_psnr_db": 14.37
+    },
+    {
+      "method": "AOT-GAN",
+      "attacked_recall_percent": 87.5,
+      "recovered": 658,
+      "eligible": 701,
+      "recovery_percent": 93.9,
+      "masked_psnr_db": 15.52
+    },
+    {
+      "method": "big-LaMa",
+      "attacked_recall_percent": 88.3,
+      "recovered": 667,
+      "eligible": 701,
+      "recovery_percent": 95.1,
+      "masked_psnr_db": 16.36
+    }
+  ],
+  "group_recovery": [
+    {
+      "detector": "Faster R-CNN",
+      "mask": "K",
+      "mean": 0.877,
+      "ci_low": 0.824,
+      "ci_high": 0.923,
+      "groups": 56
+    },
+    {
+      "detector": "Faster R-CNN",
+      "mask": "P",
+      "mean": 0.843,
+      "ci_low": 0.788,
+      "ci_high": 0.89,
+      "groups": 56
+    },
+    {
+      "detector": "YOLO11s",
+      "mask": "P",
+      "mean": 0.568,
+      "ci_low": 0.455,
+      "ci_high": 0.679,
+      "groups": 42
+    }
+  ],
+  "efficiency": [
+    {
+      "method": "APR-HS-96",
+      "mean_ms": 76.717,
+      "p95_ms": 86.117,
+      "peak_cuda_mib": 7.794
+    },
+    {
+      "method": "AOT-GAN",
+      "mean_ms": 91.19,
+      "p95_ms": 133.782,
+      "peak_cuda_mib": 8632.963
+    },
+    {
+      "method": "big-LaMa",
+      "mean_ms": 117.349,
+      "p95_ms": 220.923,
+      "peak_cuda_mib": 848.286
+    }
+  ],
+  "ap50_predicted": {
+    "No repair": {
+      "Faster R-CNN": 0.075,
+      "YOLO11s": 0.647
+    },
+    "APR-HS-96": {
+      "Faster R-CNN": 0.692,
+      "YOLO11s": 0.793
+    }
+  },
+  "sources": [
+    {
+      "path": "latex/tables/table_systems.tex",
+      "sha256": "db375db39fbf758a2df7dc96f2e37fd904849d4d6cf2ccac4a0bedda6a1ea7dc"
+    },
+    {
+      "path": "latex/tables/table_effects.tex",
+      "sha256": "60175d551b5790cf768428e487451282388607b7a66f8dd225791c94dc893831"
+    },
+    {
+      "path": "latex/tables/table_efficiency.tex",
+      "sha256": "35096c8927bb5582ae5484c6d1ed242abd0d74455a3f94cbb385436637d0ce48"
+    },
+    {
+      "path": "latex/tables/table_detector_ap50.tex",
+      "sha256": "f3dac88199f9006aebd1d1278ef7ebd0e00133c89210eebd5408b9b2b5b04a21"
+    },
+    {
+      "path": "latex/main.tex",
+      "sha256": "be53fa665987abfe93842974d8e476bcd5b3241ebac84b216fc03f3c995a2c84"
+    },
+    {
+      "path": "latex/sections/methods.tex",
+      "sha256": "41c960798bef9d7204288681bb77af6e075c20a71426bd4b0b2ff113c48dcba6"
+    },
+    {
+      "path": "latex/sections/results.tex",
+      "sha256": "9e61c74b4df906315eec8c173691d309a0fefd4743ad64af83ad24b96e0e8fd0"
+    }
+  ],
+  "boundaries": {
+    "recovery": "Predicted masks; Faster R-CNN; 701 eligible final failures",
+    "group_recovery": "Descriptive 95% whole-source-group bootstrap CI; detector-specific eligibility",
+    "efficiency": "128 DFG development cases/57 groups; batch1; RTX5070Ti; FP32; repair-only",
+    "ap50": "781 final target-centric rows; pooled ground-truth-class AP50"
+  }
+}

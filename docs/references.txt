@@ -1,0 +1,6 @@
+[1] A. Telea, “An Image Inpainting Technique Based on the Fast Marching Method,” Journal of Graphics Tools, vol. 9, no. 1, pp. 23–34, 2004, doi: 10.1080/10867651.2004.10487596.
+[2] D. Tabernik and D. Skočaj, “Deep Learning for Large-Scale Traffic-Sign Detection and Recognition,” IEEE Transactions on Intelligent Transportation Systems, vol. 21, no. 4, pp. 1427–1440, 2020, doi: 10.1109/TITS.2019.2913588.
+[3] ViCoS Laboratory, University of Ljubljana, “DFG Traffic Sign Data Set.” Official dataset resource, version 1.02, 2019. [Online]. Available: https://www.vicos.si/resources/dfg/
+[4] Y. Zeng, J. Fu, H. Chao, and B. Guo, “Aggregated Contextual Transformations for High-Resolution Image Inpainting,” IEEE Transactions on Visualization and Computer Graphics, vol. 29, no. 7, pp. 3266–3280, 2023, doi: 10.1109/TVCG.2022.3156949.
+[5] R. Suvorov et al., “Resolution-Robust Large Mask Inpainting with Fourier Convolutions,” in Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, 2022, pp. 3172–3182. doi: 10.1109/WACV51458.2022.00323.
+[6] C.-Y. Cheng and B.-J. Hwang, “APR: Compact Analytic-Prior Repair for Traffic-Sign Detection.” IEEE CSIT 2026, Paper 066, 2026. [Online]. Available: https://csit.ieee.org.ua/accepted-papers/

@@ -1,0 +1,65 @@
+[
+  {
+    "source": "src/guardfill_rt/successor_repair/model.py",
+    "source_sha256": "693dfad7bbf20b316fa3c3eb1e9b0fd74e81080142e4f16988b950e9d088f58b",
+    "export": "apr_repair/core/model.py",
+    "export_sha256": "2c4fdf96298ad146c058e59d2d64393b50b2eaa5e62e4c702003e38bed4d0a5b",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/successor_repair/model_v2.py",
+    "source_sha256": "983ac7c5d496d18f7625fd6a48d90eb2826e9692fb40876112b9e1d54ee74eb4",
+    "export": "apr_repair/core/model_v2.py",
+    "export_sha256": "d0c12ec45f2db56e2e3a4d15f7a8f78ce78d65b8047af7ec77d8908e2950e577",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/successor_repair/model_v3.py",
+    "source_sha256": "1b810b31b30cc8a88bdea27175c608c75fa14f283981887be0fa0787edff6ec7",
+    "export": "apr_repair/core/model_v3.py",
+    "export_sha256": "45b09d24f1a3123b07f00da9eda6bfcb12c1528b53cb2fcba42ef4211f50b2a0",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/successor_repair/model_v4_1.py",
+    "source_sha256": "4fc864740800287001d12d9bc253965ddd0e977cecece327b96680419ddd241c",
+    "export": "apr_repair/core/model_v4_1.py",
+    "export_sha256": "60eb2bc8702e74476b52ab1d43884d2c25a2e6f58890ac585776971276b70eae",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/successor_repair/pipeline.py",
+    "source_sha256": "b27bc82b292c6b8511319f7c77de5432c9af4b43c7f6dd6048a151285b0002c0",
+    "export": "apr_repair/core/pipeline.py",
+    "export_sha256": "8e6083727217b2d85d269032fd7cca15c6e7379b489da4a92e0b4289aadd855f",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/successor_repair/pipeline_v2.py",
+    "source_sha256": "a76c9159752246284bb0175b83e9216a36a1d8253faec5430f9735b21247720b",
+    "export": "apr_repair/core/pipeline_v2.py",
+    "export_sha256": "95507a1d6b16482fa7bcb0d5b6f6b73d81dc118080c4f8a816e7a0a09ffb8002",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/successor_repair/pipeline_v3.py",
+    "source_sha256": "ba96c2baf3fb952a100b69cb4c55f9b01ec85b206a92fcebfe1621ffca2e9f32",
+    "export": "apr_repair/core/pipeline_v3.py",
+    "export_sha256": "32f4daa97b7a1894d71f50464490fef97d93d1e2f59a1435ee4d1d606a6a6404",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/successor_repair/pipeline_v4_1.py",
+    "source_sha256": "b9c6500ad947068d54606bbdc3f5226038596af21fdd80bcff650bf52bdad887",
+    "export": "apr_repair/core/pipeline_v4_1.py",
+    "export_sha256": "09f2b30a3e42b50567bd80a18ff86ea169a0272ee1bcc58f37d14198ce5b811c",
+    "transformation": "SPDX header only; source body retained"
+  },
+  {
+    "source": "src/guardfill_rt/reap_unmapped_2406_roi_locator_v2.py",
+    "source_sha256": "9be6158c8e6073824ac4c2a3827bbe04922bbf3542d5f91931b4bce8e6644b30",
+    "export": "apr_repair/locator.py",
+    "export_sha256": "6632a39d149be21fa47acc8937fe116b71e473aea0831dc5259922b2f30d6425",
+    "transformation": "SPDX header only; source body retained"
+  }
+]

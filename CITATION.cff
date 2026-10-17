@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "Please cite the software release and the associated accepted conference paper."
+type: software
+title: "APR: Compact Analytic-Prior Repair for Traffic-Sign Detection"
+version: 1.0.0
+date-released: "2026-10-17"
+authors:
+  - family-names: Cheng
+    given-names: Chih-Yuan
+    affiliation: Ming Chuan University
+    orcid: https://orcid.org/0009-0003-3727-649X
+  - family-names: Hwang
+    given-names: Bor-Jiunn
+    affiliation: Ming Chuan University
+    orcid: https://orcid.org/0000-0002-7302-1019
+repository-code: https://github.com/zzy001zzy/apr-traffic-sign-repair
+url: https://github.com/zzy001zzy/apr-traffic-sign-repair
+license:
+  - MIT
+  - CC-BY-4.0
+  - CC-BY-NC-SA-4.0
+preferred-citation:
+  type: conference-paper
+  title: "APR: Compact Analytic-Prior Repair for Traffic-Sign Detection"
+  authors:
+    - family-names: Cheng
+      given-names: Chih-Yuan
+    - family-names: Hwang
+      given-names: Bor-Jiunn
+  year: 2026
+  url: https://csit.ieee.org.ua/accepted-papers/
+  notes: "IEEE CSIT 2026 Paper 066; accepted and orally presented on 15 October 2026. Proceedings record pending."

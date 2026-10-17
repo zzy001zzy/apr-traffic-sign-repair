@@ -1,0 +1,21 @@
+version = 1
+
+[[annotations]]
+path = [".gitignore", ".github/**", "REUSE.toml", "LICENSE"]
+SPDX-FileCopyrightText = "2026 Chih-Yuan Cheng and Bor-Jiunn Hwang"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["README.md", "CONTRIBUTING.md", "SECURITY.md", "CITATION.cff", ".zenodo.json", "docs/**", "weights/manifest.json", "web/README.md", "web/assets/reported-results.json"]
+SPDX-FileCopyrightText = "2026 Chih-Yuan Cheng and Bor-Jiunn Hwang"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["weights/*.safetensors"]
+SPDX-FileCopyrightText = "2026 Chih-Yuan Cheng and Bor-Jiunn Hwang"
+SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
+
+[[annotations]]
+path = ["web/assets/qualitative-case.png"]
+SPDX-FileCopyrightText = ["DFG Consulting d.o.o.; ViCoS Laboratory, University of Ljubljana", "2026 Chih-Yuan Cheng and Bor-Jiunn Hwang (research modifications and layout)"]
+SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
