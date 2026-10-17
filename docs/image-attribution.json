@@ -7,6 +7,6 @@
   "doi": "10.1109/TITS.2019.2913588",
   "license": "CC-BY-NC-SA-4.0",
   "modifications": "Existing fixed E14 atlas case DFGSHAPE_0003465: crops, digital occlusion, repair and four-panel layout",
-  "case_scope": "One fixed qualitative known-mask case; aggregate results are reported separately",
+  "case_scope": "One fixed qualitative predicted-mask case; aggregate results are reported separately",
   "reuse_scope": "Public noncommercial research example with attribution and ShareAlike conditions"
 }

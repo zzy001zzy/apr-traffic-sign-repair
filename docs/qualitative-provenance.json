@@ -1,0 +1,19 @@
+{
+  "case_id": "DFGSHAPE_0003465",
+  "actual_mask_branch": "PREDICTED",
+  "composite_sha256": "04775c01e11a947ce0bf11e1b38a073d9116b9f7986efe3d36cf447f5f647bdf",
+  "atlas_manifest_sha256": "4ca12b68abf2bc5b38f7809ee34cfed32d390119b04124db60c36a54e7abc9c4",
+  "producer_source": "experiments/dfg_shape/run_dfg_paper_supplement_v1.py",
+  "producer_sha256": "c8904069a904e412b46336e5616af2f77c419e787334e7e6a5158bc6466ddb8b",
+  "producer_lines": "4676-4689",
+  "source_excerpt": [
+    "predicted = mask_store.mask(case_id, kind)",
+    "repaired, _diagnostics = repair_output(\"apr\", source, predicted, apr_model=apr_model)",
+    "telea_output = telea_r3(source, predicted)",
+    "(\"after_apr\", repaired)",
+    "(\"after_telea\", telea_output)",
+    "(\"oracle_mask\", mask_png(exact))"
+  ],
+  "binding": "Producer hash matches the R12 launch gate and terminal receipt; the atlas manifest hash matches the E14 terminal and retained image-rights review.",
+  "correction": "Version 1.0.0 public documentation mistakenly described the precomputed qualitative panels as known-mask. Version 1.0.1 corrects this description to predicted-mask. The panels, model weights, inference code and reported numerical results are unchanged. The Python API accepts a caller-provided support mask as a separate interface contract."
+}
