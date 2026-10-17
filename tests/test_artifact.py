@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT
 """CPU engineering checks using synthetic inputs only."""
 
-import json
 from pathlib import Path
 import tempfile
 import unittest

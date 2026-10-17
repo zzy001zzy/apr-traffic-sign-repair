@@ -1,17 +1,34 @@
 # SPDX-FileCopyrightText: 2026 Chih-Yuan Cheng and Bor-Jiunn Hwang
 # SPDX-License-Identifier: MIT
 [build-system]
-requires = ["setuptools>=69"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "apr-traffic-sign-repair"
-version = "1.0.2"
+version = "1.0.3"
 description = "Compact analytic-prior repair: frozen research inference modules"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT (code); see component licenses for weights and examples"}
-dependencies = ["numpy>=1.26,<3", "opencv-python-headless>=4.8,<6", "torch>=2.2,<3", "safetensors>=0.4,<1"]
+license = "MIT"
+license-files = ["LICENSE", "LICENSES/MIT.txt", "LICENSES/CC-BY-4.0.txt"]
+dependencies = ["numpy>=1.26,<3", "opencv-python-headless>=4.8,<6", "torch>=2.13,<3", "safetensors>=0.4,<1"]
+
+[project.optional-dependencies]
+dev = ["ruff==0.17.1", "bandit==1.9.4", "coverage==7.16.2", "reuse==6.2.0", "pip-audit==2.10.1", "build==1.6.1"]
 
 [tool.setuptools.packages.find]
 include = ["apr_repair*"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B"]
+
+[tool.coverage.run]
+branch = true
+source = ["apr_repair"]
+
+[tool.coverage.report]
+show_missing = true

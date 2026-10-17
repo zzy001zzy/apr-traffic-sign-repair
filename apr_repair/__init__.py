@@ -4,5 +4,5 @@
 
 from .api import load_locator_model, load_repair_model, repair_rgb
 
-__version__ = "1.0.0"
+__version__ = "1.0.3"
 __all__ = ["load_locator_model", "load_repair_model", "repair_rgb"]
