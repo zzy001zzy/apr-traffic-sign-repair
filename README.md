@@ -94,9 +94,13 @@ The badge links to the current [OpenSSF Best Practices self-assessment](https://
 
 ### Public code quality and release signatures
 
-[SonarQube Cloud analysis](https://sonarcloud.io/dashboard?id=zzy001zzy_apr-traffic-sign-repair) checks the published Python and web sources and imports CPU regression-test coverage. The public dashboard identifies the analyzed revision, overall metrics and the applicable new-code quality gate.
+[![SonarQube Cloud quality gate](https://sonarcloud.io/api/project_badges/measure?project=zzy001zzy_apr-traffic-sign-repair&metric=alert_status)](https://sonarcloud.io/project/overview?id=zzy001zzy_apr-traffic-sign-repair)
+
+[SonarQube Cloud analysis](https://sonarcloud.io/project/overview?id=zzy001zzy_apr-traffic-sign-repair) checks the published Python, release tooling and web sources and imports CPU regression-test coverage. The public dashboard identifies the analyzed revision, overall metrics and the applicable new-code quality gate.
 
 [Sigstore signature verification](docs/SIGNATURES.md) documents the workflow that signs the original version 1.0.3 release archive, license inventory, checksums and both original model-weight files. Verification checks the artifact bytes, GitHub Actions publisher identity and transparency-log evidence. The signature workflow publishes its bundles alongside the original [release assets](https://github.com/zzy001zzy/apr-traffic-sign-repair/releases/tag/v1.0.3).
+
+<a href="docs/SIGNATURES.md"><img src="https://raw.githubusercontent.com/sigstore/community/main/artwork/badge/sigstore_codesigned_purple.png" width="96" alt="Sigstore: My code is signed"></a>
 
 ## Qualitative example provenance
 
