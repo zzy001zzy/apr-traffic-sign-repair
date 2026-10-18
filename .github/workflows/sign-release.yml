@@ -29,11 +29,14 @@ jobs:
     env:
       RELEASE_TAG: ${{ inputs.release_tag }}
       GH_TOKEN: ${{ github.token }}
-      INPUT_DIR: ${{ runner.temp }}/apr-signature-inputs
-      OUTPUT_DIR: ${{ runner.temp }}/apr-signatures
       CERTIFICATE_IDENTITY: https://github.com/zzy001zzy/apr-traffic-sign-repair/.github/workflows/sign-release.yml@refs/heads/codex/public-release
       CERTIFICATE_OIDC_ISSUER: https://token.actions.githubusercontent.com
     steps:
+      - name: Prepare signing directories
+        shell: bash
+        run: |
+          printf 'INPUT_DIR=%s/apr-signature-inputs\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
+          printf 'OUTPUT_DIR=%s/apr-signatures\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
       - name: Check out signing tooling
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
