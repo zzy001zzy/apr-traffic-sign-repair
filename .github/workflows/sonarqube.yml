@@ -9,6 +9,12 @@ on:
     branches: [codex/public-release]
     types: [opened, synchronize, reopened]
   workflow_dispatch:
+    inputs:
+      initialize_main_branch:
+        description: Align this newly created Sonar project with its actual GitHub default branch
+        type: boolean
+        default: false
+        required: false
 
 permissions:
   contents: read
@@ -28,6 +34,89 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.12'
+      - name: Align the newly created SonarQube main branch
+        if: github.event_name == 'workflow_dispatch' && inputs.initialize_main_branch
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+
+          project = "zzy001zzy_apr-traffic-sign-repair"
+          target = "codex/public-release"
+          original_main_id = "91d232d6-af10-4e4d-a89e-760eeda83163"
+          initial_short_id = "372e8544-517b-4608-9838-fa482c1da6d4"
+          if os.environ["GITHUB_REPOSITORY"] != "zzy001zzy/apr-traffic-sign-repair":
+              raise RuntimeError("Setup is limited to the reviewed public repository")
+          if os.environ["GITHUB_REF"] != "refs/heads/" + target:
+              raise RuntimeError("Setup must run from the actual default branch")
+
+          def api(endpoint, parameters, *, post=False):
+              encoded = urlencode(parameters).encode("ascii")
+              url = "https://sonarcloud.io/api/" + endpoint
+              if not post:
+                  url += "?" + encoded.decode("ascii")
+              request = Request(
+                  url,
+                  data=encoded if post else None,
+                  headers={"Authorization": "Bearer " + os.environ["SONAR_TOKEN"]},
+                  method="POST" if post else "GET",
+              )
+              with urlopen(request, timeout=30) as response:
+                  content = response.read()
+              return json.loads(content) if content else {}
+
+          branches = api("project_branches/list", {"project": project})["branches"]
+          main = [branch for branch in branches if branch["isMain"]]
+          if len(main) != 1 or main[0]["branchId"] != original_main_id:
+              raise RuntimeError("Main branch identity differs from this initial setup")
+          operations = []
+          if main[0]["name"] != target:
+              if main[0]["name"] != "master" or main[0]["type"] != "LONG":
+                  raise RuntimeError("Expected the original unanalyzed master branch")
+              other = [branch for branch in branches if not branch["isMain"]]
+              if len(other) != 1:
+                  raise RuntimeError("Setup requires exactly the single initial short branch")
+              short = other[0]
+              if (
+                  short["name"] != target
+                  or short["type"] != "SHORT"
+                  or short.get("mergeBranch") != "master"
+                  or short["branchId"] != initial_short_id
+              ):
+                  raise RuntimeError("Short branch identity differs from the initial analysis")
+              history = api("project_analyses/search", {"project": project, "branch": "master", "ps": 1})
+              if history["paging"]["total"] != 0 or history["analyses"]:
+                  raise RuntimeError("The original main branch already has analysis history")
+              tasks = api("ce/component", {"component": project})
+              active = [*tasks.get("queue", []), tasks.get("current", {})]
+              if any(task.get("status") in {"PENDING", "IN_PROGRESS"} for task in active):
+                  raise RuntimeError("Wait for active SonarQube tasks before changing branch setup")
+              api("project_branches/delete", {"project": project, "branch": target}, post=True)
+              operations.append("Deleted only the identified initial short-branch analysis")
+              api("project_branches/rename", {"project": project, "name": target}, post=True)
+              operations.append("Renamed the original main branch to the actual GitHub default branch")
+          else:
+              operations.append("The original main branch is already aligned; no mutation needed")
+          verified = api("project_branches/list", {"project": project})["branches"]
+          if not any(branch["isMain"] and branch["name"] == target and branch["branchId"] == original_main_id for branch in verified):
+              raise RuntimeError("Main-branch alignment verification failed")
+          receipt = {
+              "project": project,
+              "main_branch": target,
+              "operations": operations,
+              "workflow_commit": os.environ["GITHUB_SHA"],
+              "quality_gate_configuration_changed": False,
+          }
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as summary:
+              summary.write("## SonarQube initial main-branch setup\n\n```json\n")
+              summary.write(json.dumps(receipt, indent=2) + "\n```\n")
+          print("SonarQube main branch verified: " + target)
+          PY
       - name: Install CPU inference runtime and coverage
         run: |
           python -m pip install --upgrade 'setuptools>=83'
