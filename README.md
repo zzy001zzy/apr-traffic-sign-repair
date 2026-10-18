@@ -72,6 +72,10 @@ The retained four-panel example was cropped, digitally occluded, repaired and la
 
 Full texts are included in `LICENSES/`; file-level assignments are recorded in `REUSE.toml`. Safetensors files preserve the tensor values of the frozen checkpoints. The weight manifest records both the original checkpoint hash and the release-file hash.
 
+[![REUSE licensing check](https://github.com/zzy001zzy/apr-traffic-sign-repair/actions/workflows/reuse.yml/badge.svg?branch=codex%2Fpublic-release)](https://github.com/zzy001zzy/apr-traffic-sign-repair/actions/workflows/reuse.yml)
+
+FSFE's official REUSE action checks file-level copyright and license compliance on every push and pull request. The badge reports the GitHub check result.
+
 ## Contributing and security
 
 Please use GitHub issues for reproducible bugs, compatibility reports and documentation suggestions. Include package versions, the command used and a minimal example made from synthetic or shareable inputs. See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md).
