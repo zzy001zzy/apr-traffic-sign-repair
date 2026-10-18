@@ -1,7 +1,7 @@
 version = 1
 
 [[annotations]]
-path = [".gitignore", ".github/**", "REUSE.toml", "LICENSE"]
+path = [".gitignore", ".github/**", "REUSE.toml", "LICENSE", "sonar-project.properties"]
 SPDX-FileCopyrightText = "2026 Chih-Yuan Cheng and Bor-Jiunn Hwang"
 SPDX-License-Identifier = "MIT"
 

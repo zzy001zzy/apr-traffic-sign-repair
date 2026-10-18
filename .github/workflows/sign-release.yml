@@ -1,0 +1,91 @@
+name: Sigstore release signatures
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing reviewed release to sign without changing its bytes
+        type: choice
+        options:
+          - v1.0.3
+        default: v1.0.3
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sigstore-release-${{ inputs.release_tag }}
+  cancel-in-progress: false
+
+jobs:
+  sign-and-publish:
+    if: github.repository == 'zzy001zzy/apr-traffic-sign-repair' && github.ref == 'refs/heads/codex/public-release'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      id-token: write
+    env:
+      RELEASE_TAG: ${{ inputs.release_tag }}
+      GH_TOKEN: ${{ github.token }}
+      INPUT_DIR: ${{ runner.temp }}/apr-signature-inputs
+      OUTPUT_DIR: ${{ runner.temp }}/apr-signatures
+      CERTIFICATE_IDENTITY: https://github.com/zzy001zzy/apr-traffic-sign-repair/.github/workflows/sign-release.yml@refs/heads/codex/public-release
+      CERTIFICATE_OIDC_ISSUER: https://token.actions.githubusercontent.com
+    steps:
+      - name: Check out signing tooling
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.1.3
+      - name: Download the unchanged published release
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$INPUT_DIR"
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --dir "$INPUT_DIR" \
+            --pattern 'apr-traffic-sign-repair-v1.0.3.zip' \
+            --pattern 'apr-traffic-sign-repair-v1.0.3.spdx' \
+            --pattern 'SHA256SUMS.txt'
+      - name: Check pinned release digests and prepare exact weight bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/prepare_release_signatures.py \
+            --tag "$RELEASE_TAG" --input-dir "$INPUT_DIR" --output-dir "$OUTPUT_DIR" \
+            --workflow-sha "$GITHUB_SHA" --run-id "$GITHUB_RUN_ID" --run-attempt "$GITHUB_RUN_ATTEMPT"
+      - name: Sign and independently verify every prepared artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          cosign version
+          while IFS= read -r artifact; do
+            cosign sign-blob --yes \
+              --bundle "$OUTPUT_DIR/$artifact.sigstore.json" "$OUTPUT_DIR/$artifact"
+            cosign verify-blob \
+              --bundle "$OUTPUT_DIR/$artifact.sigstore.json" \
+              --certificate-identity "$CERTIFICATE_IDENTITY" \
+              --certificate-oidc-issuer "$CERTIFICATE_OIDC_ISSUER" \
+              --certificate-github-workflow-sha "$GITHUB_SHA" \
+              "$OUTPUT_DIR/$artifact"
+          done < "$OUTPUT_DIR/signing-inputs.txt"
+      - name: Publish verified bundles and extracted original weights
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release upload "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            "$OUTPUT_DIR"/*.sigstore.json \
+            "$OUTPUT_DIR/SIGSTORE-v1.0.3.json" \
+            "$OUTPUT_DIR"/*.safetensors
+          {
+            printf '## Sigstore signatures published\n\n'
+            printf 'Release: https://github.com/%s/releases/tag/%s\n\n' "$GITHUB_REPOSITORY" "$RELEASE_TAG"
+            printf 'Verified exact certificate identity: `%s`\n\n' "$CERTIFICATE_IDENTITY"
+            printf 'Issuer: `%s`\n\n' "$CERTIFICATE_OIDC_ISSUER"
+            printf 'Signed original ZIP, SPDX, checksum list, both original weights and the signing receipt.\n'
+          } >> "$GITHUB_STEP_SUMMARY"

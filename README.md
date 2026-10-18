@@ -84,13 +84,19 @@ Please use GitHub issues for reproducible bugs, compatibility reports and docume
 
 Version 1.0.2 is archived at [Zenodo DOI 10.5281/zenodo.23430088](https://doi.org/10.5281/zenodo.23430088). The archive includes the release ZIP, a file-level SPDX inventory and SHA-256 checksums. The published Zenodo files were downloaded and matched byte for byte against the GitHub release assets.
 
-[Artifact checks](https://github.com/zzy001zzy/apr-traffic-sign-repair/actions/workflows/ci.yml) run 12 CPU engineering tests with branch coverage, Ruff code checks, Bandit security analysis, a source-to-wheel build, installed-dependency auditing and REUSE licensing checks. These checks cover software contracts and release engineering; reported scientific results retain their original measurement scope. Development commands, contribution requirements and test policy are in [`CONTRIBUTING.md`](CONTRIBUTING.md); security design and the release procedure are in [`docs/SECURE_DEVELOPMENT.md`](docs/SECURE_DEVELOPMENT.md).
+[Artifact checks](https://github.com/zzy001zzy/apr-traffic-sign-repair/actions/workflows/ci.yml) run CPU engineering tests with branch coverage, Ruff code checks, Bandit security analysis, a source-to-wheel build, installed-dependency auditing and REUSE licensing checks. These checks cover software contracts and release engineering; reported scientific results retain their original measurement scope. Development commands, contribution requirements and test policy are in [`CONTRIBUTING.md`](CONTRIBUTING.md); security design and the release procedure are in [`docs/SECURE_DEVELOPMENT.md`](docs/SECURE_DEVELOPMENT.md).
 
 Version 1.0.3 adds this engineering workflow, input-boundary regressions and documented security/reporting processes. Its supported PyTorch minimum is 2.13, addressing upstream advisory CVE-2025-3000; the public CI uses the 2.13.0 CPU wheel. Frozen model bodies, weights, example pixels and research aggregates retain the archived identities. The DOI and `CITATION.cff` identify the separately archived scientific artifact, version 1.0.2. Historical benchmark measurements retain their original runtime and are not remeasured by these engineering checks.
 
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/15606/badge)](https://www.bestpractices.dev/projects/15606)
 
 The badge links to the current [OpenSSF Best Practices self-assessment](https://www.bestpractices.dev/en/projects/15606) and its public criterion-level evidence. An [OpenSSF Scorecard v5.6.0 snapshot](docs/scorecard-2026-10-17.json) records 4.2/10 for the initial public release commit; that historical score is separate from the Best Practices badge.
+
+### Public code quality and release signatures
+
+[SonarQube Cloud analysis](https://sonarcloud.io/dashboard?id=zzy001zzy_apr-traffic-sign-repair) checks the published Python and web sources and imports CPU regression-test coverage. The public dashboard identifies the analyzed revision, overall metrics and the applicable new-code quality gate.
+
+[Sigstore signature verification](docs/SIGNATURES.md) documents the workflow that signs the original version 1.0.3 release archive, license inventory, checksums and both original model-weight files. Verification checks the artifact bytes, GitHub Actions publisher identity and transparency-log evidence. The signature workflow publishes its bundles alongside the original [release assets](https://github.com/zzy001zzy/apr-traffic-sign-repair/releases/tag/v1.0.3).
 
 ## Qualitative example provenance
 

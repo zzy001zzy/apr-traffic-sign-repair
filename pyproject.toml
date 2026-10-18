@@ -28,7 +28,8 @@ select = ["E4", "E7", "E9", "F", "B"]
 
 [tool.coverage.run]
 branch = true
-source = ["apr_repair"]
+source = ["apr_repair", "scripts"]
+relative_files = true
 
 [tool.coverage.report]
 show_missing = true
